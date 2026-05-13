@@ -11,7 +11,37 @@
   "flowContents" : {
     "comments" : "",
     "componentType" : "PROCESS_GROUP",
-    "connections" : [ ],
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "12319620-1c6b-38c0-ba66-5f1419d36144",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "08129178-12dc-3114-af39-94cc254f603c",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "de5b272a-4947-310b-8c25-77efd9b6820d",
+        "name" : "ListenSyslog",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 1
+    } ],
     "controllerServices" : [ ],
     "defaultBackPressureDataSizeThreshold" : "1 GB",
     "defaultBackPressureObjectThreshold" : 10000,
@@ -20,7 +50,15 @@
     "externalControllerServiceReferences" : { },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
-    "funnels" : [ ],
+    "funnels" : [ {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "12319620-1c6b-38c0-ba66-5f1419d36144",
+      "position" : {
+        "x" : -310.0,
+        "y" : -77.0
+      }
+    } ],
     "identifier" : "flow-contents-group",
     "inputPorts" : [ ],
     "labels" : [ ],
@@ -32,7 +70,160 @@
       "y" : 0.0
     },
     "processGroups" : [ ],
-    "processors" : [ ],
+    "processors" : [ {
+      "autoTerminatedRelationships" : [ "invalid" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.9.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "de5b272a-4947-310b-8c25-77efd9b6820d",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "ListenSyslog",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -442.0,
+        "y" : -380.0
+      },
+      "properties" : {
+        "Max Size of Socket Buffer" : "1 MB",
+        "Local Network Interface" : "eth0",
+        "Max Batch Size" : "1",
+        "Receive Buffer Size" : "65507 B",
+        "Message Delimiter" : "\\n",
+        "Worker Threads" : "2",
+        "UDP Port" : "567",
+        "Parse Messages" : "true",
+        "Protocol" : "UDP",
+        "Client Auth" : "REQUIRED",
+        "Character Set" : "UTF-8",
+        "Max Size of Message Queue" : "10000"
+      },
+      "propertyDescriptors" : {
+        "Max Size of Socket Buffer" : {
+          "displayName" : "Max Size of Socket Buffer",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Max Size of Socket Buffer",
+          "sensitive" : false
+        },
+        "Local Network Interface" : {
+          "displayName" : "Local Network Interface",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Local Network Interface",
+          "sensitive" : false
+        },
+        "Max Batch Size" : {
+          "displayName" : "Max Batch Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Max Batch Size",
+          "sensitive" : false
+        },
+        "Receive Buffer Size" : {
+          "displayName" : "Receive Buffer Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Receive Buffer Size",
+          "sensitive" : false
+        },
+        "Message Delimiter" : {
+          "displayName" : "Message Delimiter",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Message Delimiter",
+          "sensitive" : false
+        },
+        "TCP Port" : {
+          "displayName" : "TCP Port",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "listenPortDefinition" : {
+            "applicationProtocols" : [ "syslog" ],
+            "transportProtocol" : "TCP"
+          },
+          "name" : "TCP Port",
+          "sensitive" : false
+        },
+        "SSL Context Service" : {
+          "displayName" : "SSL Context Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "SSL Context Service",
+          "sensitive" : false
+        },
+        "Worker Threads" : {
+          "displayName" : "Worker Threads",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Worker Threads",
+          "sensitive" : false
+        },
+        "UDP Port" : {
+          "displayName" : "UDP Port",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "listenPortDefinition" : {
+            "applicationProtocols" : [ "syslog" ],
+            "transportProtocol" : "UDP"
+          },
+          "name" : "UDP Port",
+          "sensitive" : false
+        },
+        "Parse Messages" : {
+          "displayName" : "Parse Messages",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Parse Messages",
+          "sensitive" : false
+        },
+        "Protocol" : {
+          "displayName" : "Protocol",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Protocol",
+          "sensitive" : false
+        },
+        "Client Auth" : {
+          "displayName" : "Client Auth",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Client Auth",
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Character Set",
+          "sensitive" : false
+        },
+        "Max Size of Message Queue" : {
+          "displayName" : "Max Size of Message Queue",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Max Size of Message Queue",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.ListenSyslog",
+      "yieldDuration" : "1 sec"
+    } ],
     "remoteProcessGroups" : [ ],
     "scheduledState" : "ENABLED",
     "statelessFlowTimeout" : "1 min"
@@ -44,6 +235,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "ingestsyslogMyPG1",
-    "timestamp" : 1778703711439
+    "timestamp" : 1778703901442
   }
 }
