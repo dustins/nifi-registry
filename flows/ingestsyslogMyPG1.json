@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1778703710653,
+    "description" : "asdf",
+    "identifier" : "ingestsyslogMyPG1",
+    "lastModifiedTimestamp" : 1778703710653,
+    "name" : "ingest/syslog/MyPG1",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
