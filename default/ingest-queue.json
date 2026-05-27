@@ -75,7 +75,7 @@
       },
       "zIndex" : 18
     }, {
-      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureDataSizeThreshold" : "2 GB",
       "backPressureObjectThreshold" : 10000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
@@ -142,28 +142,28 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "4ebbb0f5-f639-32b4-afa8-c4b5aa9aa0e5",
-        "name" : "UpdateAttribute",
+        "id" : "af3f7ddf-719a-380c-bdcf-8e820231bba8",
+        "name" : "PutS3Object",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "38b83d99-828f-3c02-ad93-5e63e3d65c06",
+      "identifier" : "46b7d5d5-c57d-3018-9e1a-681af42e42ab",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
+      "selectedRelationships" : [ "unmatched" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "4fda4d90-0263-3568-960e-5ccbb4f97b36",
-        "name" : "UnpackContent",
+        "id" : "65023eae-019e-1000-4482-1ef840728e48",
+        "name" : "RouteFragments",
         "type" : "PROCESSOR"
       },
-      "zIndex" : 6
+      "zIndex" : 25
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -262,6 +262,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "16d2fecf-e478-3a50-8671-968e87b8865e",
+        "name" : "IdentifyMimeType",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "754ab9ce-ed28-34dc-b49f-e626983df2ba",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "4fda4d90-0263-3568-960e-5ccbb4f97b36",
+        "name" : "UnpackContent",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 24
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "b017df4e-7b42-3a27-93ec-c2a3c1399881",
         "name" : "AttributesToJSON",
         "type" : "PROCESSOR"
@@ -284,36 +314,6 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 19
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "af3f7ddf-719a-380c-bdcf-8e820231bba8",
-        "name" : "PutS3Object",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "807b1df4-d9dc-37b6-83f2-188491efbb18",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "65023eae-019e-1000-4482-1ef840728e48",
-        "name" : "RouteFragments",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 15
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -465,37 +465,7 @@
       },
       "zIndex" : 10
     }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "16d2fecf-e478-3a50-8671-968e87b8865e",
-        "name" : "IdentifyMimeType",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d9728304-a657-3abf-83bd-a315c8e9a316",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "4ebbb0f5-f639-32b4-afa8-c4b5aa9aa0e5",
-        "name" : "UpdateAttribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 7
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureDataSizeThreshold" : "2 GB",
       "backPressureObjectThreshold" : 10000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
@@ -682,8 +652,8 @@
       "identifier" : "3c3dae97-dca6-350a-9ec2-3e77dfd4ee48",
       "label" : "recursive decomp",
       "position" : {
-        "x" : 88.0,
-        "y" : -1352.0
+        "x" : -648.0,
+        "y" : -1136.0
       },
       "style" : {
         "font-size" : "12px"
@@ -725,7 +695,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 4,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "16d2fecf-e478-3a50-8671-968e87b8865e",
@@ -733,8 +703,8 @@
       "name" : "IdentifyMimeType",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 352.0,
-        "y" : -1240.0
+        "x" : -408.0,
+        "y" : -960.0
       },
       "properties" : {
         "Use Filename In Detection" : "true",
@@ -1347,7 +1317,7 @@
       },
       "properties" : {
         "Endpoint Override URL" : "https://garage-api.swigg.net",
-        "Object Key" : "${original.uuid}/${filename}",
+        "Object Key" : "${original.uuid}",
         "Bucket" : "work-queue",
         "AWS Credentials Provider Service" : "0e036ef3-a65e-3745-9118-32d973c5e826",
         "Communications Timeout" : "30 secs",
@@ -1475,7 +1445,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 4,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "4c0b060e-ce75-3d96-b6c2-720f1a4c1cfc",
@@ -1665,71 +1635,6 @@
       "type" : "org.apache.nifi.processors.standard.MergeContent",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-update-attribute-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.9.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "4ebbb0f5-f639-32b4-afa8-c4b5aa9aa0e5",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "UpdateAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 352.0,
-        "y" : -1472.0
-      },
-      "properties" : {
-        "Store State" : "Do not store state",
-        "Cache Value Lookup Cache Size" : "100"
-      },
-      "propertyDescriptors" : {
-        "Delete Attributes Expression" : {
-          "displayName" : "Delete Attributes Expression",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Delete Attributes Expression",
-          "sensitive" : false
-        },
-        "Store State" : {
-          "displayName" : "Store State",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Store State",
-          "sensitive" : false
-        },
-        "Cache Value Lookup Cache Size" : {
-          "displayName" : "Cache Value Lookup Cache Size",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Cache Value Lookup Cache Size",
-          "sensitive" : false
-        },
-        "Stateful Variables Initial Value" : {
-          "displayName" : "Stateful Variables Initial Value",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Stateful Variables Initial Value",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
       "autoTerminatedRelationships" : [ "failure", "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -1748,8 +1653,8 @@
       "name" : "UnpackContent",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -288.0,
-        "y" : -1448.0
+        "x" : -408.0,
+        "y" : -1192.0
       },
       "properties" : {
         "Allow Stored Entries With Data Descriptor" : "false",
@@ -1826,14 +1731,22 @@
         "y" : -568.0
       },
       "properties" : {
-        "filename" : "${original.filename}",
+        "path" : "${archive.lineage.parent.path:substringAfterLast(':|:')}",
+        "filename" : "${archive.lineage.parent.filename:substringAfterLast(':|:')}",
         "Store State" : "Do not store state",
-        "fragment.identifier" : "${tmp.fragment.identifier}",
-        "fragment.index" : "${tmp.fragment.index}",
+        "fragment.identifier" : "${archive.lineage.fragment.identifier:substringAfterLast(':|:')}",
+        "fragment.index" : "${archive.lineage.fragment.index:substringAfterLast(':|:'):toNumber()}",
         "Cache Value Lookup Cache Size" : "100",
-        "fragment.count" : "${tmp.fragment.count}"
+        "fragment.count" : "${archive.lineage.fragment.count:substringAfterLast(':|:'):toNumber()}"
       },
       "propertyDescriptors" : {
+        "path" : {
+          "displayName" : "path",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "path",
+          "sensitive" : false
+        },
         "Delete Attributes Expression" : {
           "displayName" : "Delete Attributes Expression",
           "dynamic" : false,
@@ -1911,7 +1824,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 4,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "65023eae-019e-1000-4482-1ef840728e48",
@@ -1924,7 +1837,7 @@
       },
       "properties" : {
         "Routing Strategy" : "Route to Property name",
-        "from_archive" : "${tmp.fragment.identifier:isEmpty():equals('false'):or(${fragment.identifier:isEmpty():equals('false')})}"
+        "from_archive" : "${archive.lineage.fragment.identifier:substringAfterLast(':|:'):isEmpty():equals('false'):or(${fragment.identifier:isEmpty():equals('false')})}"
       },
       "propertyDescriptors" : {
         "Routing Strategy" : {
@@ -1974,11 +1887,23 @@
         "y" : -800.0
       },
       "properties" : {
-        "Delete Attributes Expression" : "^tmp\\.fragment\\..+?$",
+        "archive.lineage.fragment.index" : "${archive.lineage.fragment.index:substringBeforeLast(':|:')}",
+        "Delete Attributes Expression" : "",
         "Store State" : "Do not store state",
-        "Cache Value Lookup Cache Size" : "100"
+        "archive.lineage.fragment.identifier" : "${archive.lineage.fragment.identifier:substringBeforeLast(':|:')}",
+        "archive.lineage.parent.path" : "${archive.lineage.parent.path:substringBeforeLast(':|:')}",
+        "Cache Value Lookup Cache Size" : "100",
+        "archive.lineage.parent.filename" : "${archive.lineage.parent.filename:substringBeforeLast(':|:')}",
+        "archive.lineage.fragment.count" : "${archive.lineage.fragment.count:substringBeforeLast(':|:')}"
       },
       "propertyDescriptors" : {
+        "archive.lineage.fragment.index" : {
+          "displayName" : "archive.lineage.fragment.index",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "archive.lineage.fragment.index",
+          "sensitive" : false
+        },
         "Delete Attributes Expression" : {
           "displayName" : "Delete Attributes Expression",
           "dynamic" : false,
@@ -1993,6 +1918,20 @@
           "name" : "Store State",
           "sensitive" : false
         },
+        "archive.lineage.fragment.identifier" : {
+          "displayName" : "archive.lineage.fragment.identifier",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "archive.lineage.fragment.identifier",
+          "sensitive" : false
+        },
+        "archive.lineage.parent.path" : {
+          "displayName" : "archive.lineage.parent.path",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "archive.lineage.parent.path",
+          "sensitive" : false
+        },
         "Cache Value Lookup Cache Size" : {
           "displayName" : "Cache Value Lookup Cache Size",
           "dynamic" : false,
@@ -2005,6 +1944,20 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Stateful Variables Initial Value",
+          "sensitive" : false
+        },
+        "archive.lineage.parent.filename" : {
+          "displayName" : "archive.lineage.parent.filename",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "archive.lineage.parent.filename",
+          "sensitive" : false
+        },
+        "archive.lineage.fragment.count" : {
+          "displayName" : "archive.lineage.fragment.count",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "archive.lineage.fragment.count",
           "sensitive" : false
         }
       },
@@ -2036,24 +1989,25 @@
       "name" : "UpdateAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -720.0,
-        "y" : -1680.0
+        "x" : -408.0,
+        "y" : -1416.0
       },
       "properties" : {
-        "tmp.fragment.index" : "${fragment.index}",
+        "archive.lineage.fragment.index" : "${archive.lineage.fragment.index}:|:${fragment.index}",
         "Delete Attributes Expression" : "",
         "Store State" : "Do not store state",
-        "original.filename" : "${filename}",
-        "tmp.fragment.identifier" : "${fragment.identifier}",
+        "archive.lineage.fragment.identifier" : "${archive.lineage.fragment.identifier}:|:${fragment.identifier}",
+        "archive.lineage.parent.path" : "${archive.lineage.parent.path}:|:${path}",
         "Cache Value Lookup Cache Size" : "100",
-        "tmp.fragment.count" : "${fragment.count}"
+        "archive.lineage.parent.filename" : "${archive.lineage.parent.filename}:|:${filename}",
+        "archive.lineage.fragment.count" : "${archive.lineage.fragment.count}:|:${fragment.count}"
       },
       "propertyDescriptors" : {
-        "tmp.fragment.index" : {
-          "displayName" : "tmp.fragment.index",
+        "archive.lineage.fragment.index" : {
+          "displayName" : "archive.lineage.fragment.index",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "tmp.fragment.index",
+          "name" : "archive.lineage.fragment.index",
           "sensitive" : false
         },
         "Delete Attributes Expression" : {
@@ -2070,18 +2024,18 @@
           "name" : "Store State",
           "sensitive" : false
         },
-        "original.filename" : {
-          "displayName" : "original.filename",
+        "archive.lineage.fragment.identifier" : {
+          "displayName" : "archive.lineage.fragment.identifier",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "original.filename",
+          "name" : "archive.lineage.fragment.identifier",
           "sensitive" : false
         },
-        "tmp.fragment.identifier" : {
-          "displayName" : "tmp.fragment.identifier",
+        "archive.lineage.parent.path" : {
+          "displayName" : "archive.lineage.parent.path",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "tmp.fragment.identifier",
+          "name" : "archive.lineage.parent.path",
           "sensitive" : false
         },
         "Cache Value Lookup Cache Size" : {
@@ -2098,11 +2052,18 @@
           "name" : "Stateful Variables Initial Value",
           "sensitive" : false
         },
-        "tmp.fragment.count" : {
-          "displayName" : "tmp.fragment.count",
+        "archive.lineage.parent.filename" : {
+          "displayName" : "archive.lineage.parent.filename",
           "dynamic" : true,
           "identifiesControllerService" : false,
-          "name" : "tmp.fragment.count",
+          "name" : "archive.lineage.parent.filename",
+          "sensitive" : false
+        },
+        "archive.lineage.fragment.count" : {
+          "displayName" : "archive.lineage.fragment.count",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "archive.lineage.fragment.count",
           "sensitive" : false
         }
       },
@@ -2150,7 +2111,7 @@
         "Storage Class" : "STANDARD",
         "Multipart Part Size" : "5 GB",
         "Remove Tag Prefix" : "false",
-        "Object Key" : "${original.uuid}/${filename}",
+        "Object Key" : "${original.uuid}",
         "Multipart Threshold" : "5 GB",
         "Temporary Directory Multipart State" : "${java.io.tmpdir}",
         "Bucket" : "output-queue",
@@ -2556,6 +2517,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "ingest-queue",
-    "timestamp" : 1779891455476
+    "timestamp" : 1779912605067
   }
 }
