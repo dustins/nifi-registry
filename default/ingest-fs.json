@@ -1041,7 +1041,7 @@
         "Storage Class" : "STANDARD",
         "Multipart Part Size" : "5 GB",
         "Remove Tag Prefix" : "false",
-        "Object Key" : "${uuid}/${filename}",
+        "Object Key" : "${uuid}",
         "Multipart Threshold" : "5 GB",
         "Temporary Directory Multipart State" : "${java.io.tmpdir}",
         "Bucket" : "work-queue",
@@ -1285,6 +1285,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "ingest-fs",
-    "timestamp" : 1779891493348
+    "timestamp" : 1779912599463
   }
 }
