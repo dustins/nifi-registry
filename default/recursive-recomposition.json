@@ -42,8 +42,8 @@
       },
       "zIndex" : 3
     }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "100 GB",
+      "backPressureObjectThreshold" : 100000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
@@ -71,8 +71,8 @@
       },
       "zIndex" : 6
     }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "100 GB",
+      "backPressureObjectThreshold" : 100000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
@@ -130,8 +130,8 @@
       },
       "zIndex" : 2
     }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "100 GB",
+      "backPressureObjectThreshold" : 100000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
@@ -718,6 +718,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "recursive-recomposition",
-    "timestamp" : 1779991069799
+    "timestamp" : 1779991326734
   }
 }
