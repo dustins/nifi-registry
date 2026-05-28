@@ -215,7 +215,22 @@
       "scheduledState" : "ENABLED",
       "type" : "INPUT_PORT"
     } ],
-    "labels" : [ ],
+    "labels" : [ {
+      "componentType" : "LABEL",
+      "groupIdentifier" : "flow-contents-group",
+      "height" : 150.0,
+      "identifier" : "c1ff58f0-eee3-3df5-ae67-3332776f6205",
+      "label" : "some stuff here",
+      "position" : {
+        "x" : -992.0,
+        "y" : -1360.0
+      },
+      "style" : {
+        "font-size" : "12px"
+      },
+      "width" : 150.0,
+      "zIndex" : 1
+    } ],
     "maxConcurrentTasks" : 1,
     "name" : "recursive-decomposition",
     "outputPorts" : [ {
@@ -549,6 +564,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "recursive-decomposition",
-    "timestamp" : 1779991381137
+    "timestamp" : 1779991731672
   }
 }
