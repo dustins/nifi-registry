@@ -429,9 +429,11 @@
       "name" : "AWSCredentialsProviderControllerService",
       "properties" : {
         "Assume Role STS Region" : "us-west-2",
+        "Access Key ID" : "#{GARAGE_DEFAULT_ACCESS_KEY}",
         "Assume Role Session Time" : "3600",
         "Use Default Credentials" : "false",
-        "Use Anonymous Credentials" : "false"
+        "Use Anonymous Credentials" : "false",
+        "Secret Access Key" : "#{GARAGE_DEFAULT_SECRET_KEY}"
       },
       "propertyDescriptors" : {
         "Assume Role STS Region" : {
@@ -561,6 +563,7 @@
     "maxConcurrentTasks" : 1,
     "name" : "ingest-queue",
     "outputPorts" : [ ],
+    "parameterContextName" : "Environment Variables",
     "position" : {
       "x" : 0.0,
       "y" : 0.0
@@ -671,7 +674,8 @@
         "Client Certificate Authentication Enabled" : "false",
         "Remove Curly Braces" : "False",
         "Batch Size" : "10",
-        "Queue" : "work-queue"
+        "Queue" : "work-queue",
+        "Password" : "#{NIFI_PARAM_RABBITMQ_PASS}"
       },
       "propertyDescriptors" : {
         "Max Inbound Message Body Size" : {
@@ -1079,7 +1083,8 @@
         "AMQP Version" : "0.9.1",
         "Username" : "nifi",
         "Client Certificate Authentication Enabled" : "false",
-        "Headers Source" : "AMQP_HEADERS_ATTRIBUTE"
+        "Headers Source" : "AMQP_HEADERS_ATTRIBUTE",
+        "Password" : "#{NIFI_PARAM_RABBITMQ_PASS}"
       },
       "propertyDescriptors" : {
         "Routing Key" : {
@@ -1891,11 +1896,176 @@
   },
   "flowEncodingVersion" : "1.0",
   "latest" : false,
-  "parameterContexts" : { },
-  "parameterProviders" : { },
+  "parameterContexts" : {
+    "Environment Variables" : {
+      "componentType" : "PARAMETER_CONTEXT",
+      "inheritedParameterContexts" : [ ],
+      "name" : "Environment Variables",
+      "parameterGroupName" : "Environment Variables",
+      "parameterProvider" : "6fdb7610-019e-1000-82e8-8e5a9d8705e1",
+      "parameters" : [ {
+        "name" : "API_BASE_URL",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "GARAGE_DEFAULT_ACCESS_KEY",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "GARAGE_DEFAULT_BUCKET",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "GARAGE_DEFAULT_SECRET_KEY",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "GARAGE_UI_GARAGE_ADMIN_ENDPOINT",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "GARAGE_UI_GARAGE_ENDPOINT",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "GARAGE_UI_GARAGE_TOML",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "HOME",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "HOSTNAME",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "JAVA_HOME",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "LANG",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "LANGUAGE",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_BASE_DIR",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_HOME",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_LOG_DIR",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_PARAM_GITHUB_PAT",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_PARAM_RABBITMQ_PASS",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_PARAM_RABBITMQ_USER",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_PID_DIR",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_TOOLKIT_HOME",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_WEB_HTTPS_HOST",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_WEB_PROXY_CONTEXT_PATH",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "NIFI_WEB_PROXY_HOST",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "OLDPWD",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "PATH",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "PWD",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "RABBITMQ_DEFAULT_PASS",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "RABBITMQ_DEFAULT_USER",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "S3_ENDPOINT_URL",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "S3_REGION",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "SINGLE_USER_CREDENTIALS_PASSWORD",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "SINGLE_USER_CREDENTIALS_USERNAME",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "hostname",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "nifi_bootstrap_file",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "nifi_props_file",
+        "provided" : true,
+        "sensitive" : true
+      }, {
+        "name" : "nifi_toolkit_props_file",
+        "provided" : true,
+        "sensitive" : true
+      } ],
+      "synchronized" : true
+    }
+  },
+  "parameterProviders" : {
+    "6fdb7610-019e-1000-82e8-8e5a9d8705e1" : {
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.9.0"
+      },
+      "identifier" : "6fdb7610-019e-1000-82e8-8e5a9d8705e1",
+      "name" : "EnvironmentVariableParameterProvider",
+      "type" : "org.apache.nifi.parameter.EnvironmentVariableParameterProvider"
+    }
+  },
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "ingest-queue",
-    "timestamp" : 1779991747092
+    "timestamp" : 1779993722120
   }
 }
