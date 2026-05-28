@@ -12,8 +12,8 @@
     "comments" : "",
     "componentType" : "PROCESS_GROUP",
     "connections" : [ {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "100 GB",
+      "backPressureObjectThreshold" : 100000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
@@ -42,8 +42,8 @@
       },
       "zIndex" : 6
     }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "100 GB",
+      "backPressureObjectThreshold" : 100000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
@@ -131,8 +131,8 @@
       },
       "zIndex" : 4
     }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
+      "backPressureDataSizeThreshold" : "100 GB",
+      "backPressureObjectThreshold" : 100000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
@@ -549,6 +549,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "recursive-decomposition",
-    "timestamp" : 1779991055664
+    "timestamp" : 1779991381137
   }
 }
