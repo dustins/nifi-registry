@@ -55,7 +55,7 @@
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "92b8dd52-53c2-360e-98cd-742e5297cfac",
+      "identifier" : "5664886c-47a3-376f-b7c8-cede0e39793e",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -70,7 +70,7 @@
         "name" : "UpdateAttribute",
         "type" : "PROCESSOR"
       },
-      "zIndex" : 10
+      "zIndex" : 12
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -101,6 +101,36 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 8
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "2d4619db-fe1b-35c0-8713-b058f3b4e9fd",
+        "name" : "DeleteFile",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a17e3822-398d-3b95-bb6e-2e2fb5a1893d",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "594d4ff9-eef5-3bfc-a117-4368a2d36785",
+        "name" : "PublishAMQP",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 13
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -362,7 +392,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 8,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "1a0af5cc-6fb2-346e-825e-f86742c8c009",
@@ -370,8 +400,8 @@
       "name" : "IdentifyMimeType",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -832.0,
-        "y" : -840.0
+        "x" : -1456.0,
+        "y" : -416.0
       },
       "properties" : {
         "Use Filename In Detection" : "true",
@@ -414,7 +444,58 @@
       "type" : "org.apache.nifi.processors.standard.IdentifyMimeType",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "failure", "success" ],
+      "autoTerminatedRelationships" : [ "failure", "not found", "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.9.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "2d4619db-fe1b-35c0-8713-b058f3b4e9fd",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "DeleteFile",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1464.0,
+        "y" : 416.0
+      },
+      "properties" : {
+        "Filename" : "${filename}",
+        "Directory Path" : "${absolute.path}"
+      },
+      "propertyDescriptors" : {
+        "Filename" : {
+          "displayName" : "Filename",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Filename",
+          "sensitive" : false
+        },
+        "Directory Path" : {
+          "displayName" : "Directory Path",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Directory Path",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ "failure", "not found" ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.DeleteFile",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "failure" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -424,7 +505,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 2,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "594d4ff9-eef5-3bfc-a117-4368a2d36785",
@@ -432,8 +513,8 @@
       "name" : "PublishAMQP",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1160.0,
-        "y" : -856.0
+        "x" : -1464.0,
+        "y" : 200.0
       },
       "properties" : {
         "Routing Key" : "work-queue",
@@ -574,13 +655,14 @@
       "name" : "UpdateAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -1146.8102193753384,
-        "y" : -524.8922459744065
+        "x" : -1456.0,
+        "y" : -616.0
       },
       "properties" : {
         "Store State" : "Do not store state",
         "flow.source" : "filesystem",
-        "Cache Value Lookup Cache Size" : "100"
+        "Cache Value Lookup Cache Size" : "100",
+        "trace.start" : "${now()}"
       },
       "propertyDescriptors" : {
         "Delete Attributes Expression" : {
@@ -617,11 +699,18 @@
           "identifiesControllerService" : false,
           "name" : "Stateful Variables Initial Value",
           "sensitive" : false
+        },
+        "trace.start" : {
+          "displayName" : "trace.start",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "trace.start",
+          "sensitive" : false
         }
       },
       "retriedRelationships" : [ ],
       "retryCount" : 10,
-      "runDurationMillis" : 25,
+      "runDurationMillis" : 1000,
       "scheduledState" : "ENABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
@@ -639,7 +728,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 4,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "c1c14e47-d116-3b73-89c1-2941cb39b42c",
@@ -721,7 +810,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 4,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "c71dcac4-7b09-308f-a5f9-37805906d552",
@@ -729,8 +818,8 @@
       "name" : "AttributesToJSON",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 504.0,
-        "y" : -848.0
+        "x" : -1464.0,
+        "y" : -8.0
       },
       "properties" : {
         "Destination" : "flowfile-content",
@@ -792,7 +881,7 @@
       },
       "retriedRelationships" : [ "failure" ],
       "retryCount" : 10,
-      "runDurationMillis" : 0,
+      "runDurationMillis" : 1000,
       "scheduledState" : "ENABLED",
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
@@ -818,8 +907,8 @@
       "name" : "ListFile",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -2120.0,
-        "y" : -840.0
+        "x" : -1456.0,
+        "y" : -1048.0
       },
       "properties" : {
         "Minimum File Age" : "0 sec",
@@ -1000,7 +1089,7 @@
       "retryCount" : 10,
       "runDurationMillis" : 0,
       "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "30s",
+      "schedulingPeriod" : "10s",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.ListFile",
@@ -1016,7 +1105,7 @@
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
+      "concurrentlySchedulableTaskCount" : 10,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "d008159e-e3b3-314b-99f9-d1f06d24bb33",
@@ -1024,8 +1113,8 @@
       "name" : "PutS3Object",
       "penaltyDuration" : "0s",
       "position" : {
-        "x" : -144.78173828125,
-        "y" : -845.9720458984375
+        "x" : -1464.0,
+        "y" : -208.0
       },
       "properties" : {
         "FullControl User List" : "${s3.permissions.full.users}",
@@ -1285,6 +1374,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "ingest-fs",
-    "timestamp" : 1779912599463
+    "timestamp" : 1779978517961
   }
 }
