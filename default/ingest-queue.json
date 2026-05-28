@@ -1208,8 +1208,8 @@
       "name" : "PublishAMQP",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 792.0,
-        "y" : -784.0
+        "x" : -520.0,
+        "y" : -168.0
       },
       "properties" : {
         "Routing Key" : "output-queue",
@@ -2400,8 +2400,8 @@
       "name" : "AttributesToJSON",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 136.0,
-        "y" : -784.0
+        "x" : -520.0,
+        "y" : -368.0
       },
       "properties" : {
         "Destination" : "flowfile-content",
@@ -2562,8 +2562,8 @@
       "name" : "UpdateAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 144.0,
-        "y" : -568.0
+        "x" : -520.0,
+        "y" : -576.0
       },
       "properties" : {
         "Store State" : "Do not store state",
@@ -2628,6 +2628,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "ingest-queue",
-    "timestamp" : 1779978512099
+    "timestamp" : 1779988523515
   }
 }
