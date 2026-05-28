@@ -142,6 +142,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "6c42bb28-6cc8-3b88-b493-2a6455957acd",
+        "name" : "DeleteS3Object",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3f39e050-ceab-351a-a39a-f7cfee08c3a3",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "af3f7ddf-719a-380c-bdcf-8e820231bba8",
+        "name" : "PutS3Object",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 37
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "af3f7ddf-719a-380c-bdcf-8e820231bba8",
         "name" : "PutS3Object",
         "type" : "PROCESSOR"
@@ -164,6 +194,36 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 25
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "d418c468-bfb4-3db9-bccd-2252fae2d832",
+        "name" : "UpdateAttribute",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "5191cbc9-1128-3db8-a2d8-664f41a7bd11",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "6c42bb28-6cc8-3b88-b493-2a6455957acd",
+        "name" : "DeleteS3Object",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 38
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -312,36 +372,6 @@
         "type" : "PROCESSOR"
       },
       "zIndex" : 20
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d418c468-bfb4-3db9-bccd-2252fae2d832",
-        "name" : "UpdateAttribute",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "79c6bb8c-f648-3cdf-8acb-322f829b8d90",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "af3f7ddf-719a-380c-bdcf-8e820231bba8",
-        "name" : "PutS3Object",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 26
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
@@ -1072,7 +1102,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1912.0,
-        "y" : 80.0
+        "y" : 280.0
       },
       "properties" : {
         "Routing Key" : "output-queue",
@@ -1401,6 +1431,118 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "flow-contents-group",
+      "identifier" : "6c42bb28-6cc8-3b88-b493-2a6455957acd",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "DeleteS3Object",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -1904.0,
+        "y" : -336.0
+      },
+      "properties" : {
+        "Bucket" : "work-queue",
+        "AWS Credentials Provider Service" : "0e036ef3-a65e-3745-9118-32d973c5e826",
+        "Communications Timeout" : "30 secs",
+        "Region" : "use-custom-region",
+        "Endpoint Override URL" : "https://garage-api.swigg.net",
+        "Custom Region" : "garage",
+        "Object Key" : "${original.uuid}"
+      },
+      "propertyDescriptors" : {
+        "SSL Context Service" : {
+          "displayName" : "SSL Context Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "SSL Context Service",
+          "sensitive" : false
+        },
+        "Bucket" : {
+          "displayName" : "Bucket",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Bucket",
+          "sensitive" : false
+        },
+        "Version" : {
+          "displayName" : "Version",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Version",
+          "sensitive" : false
+        },
+        "AWS Credentials Provider Service" : {
+          "displayName" : "AWS Credentials Provider Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "AWS Credentials Provider Service",
+          "sensitive" : false
+        },
+        "Communications Timeout" : {
+          "displayName" : "Communications Timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Communications Timeout",
+          "sensitive" : false
+        },
+        "Region" : {
+          "displayName" : "Region",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Region",
+          "sensitive" : false
+        },
+        "Endpoint Override URL" : {
+          "displayName" : "Endpoint Override URL",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Endpoint Override URL",
+          "sensitive" : false
+        },
+        "Custom Region" : {
+          "displayName" : "Custom Region",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Custom Region",
+          "sensitive" : false
+        },
+        "Object Key" : {
+          "displayName" : "Object Key",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Object Key",
+          "sensitive" : false
+        },
+        "Proxy Configuration Service" : {
+          "displayName" : "Proxy Configuration Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Proxy Configuration Service",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ "failure" ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.aws.s3.DeleteS3Object",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-aws-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.9.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
       "identifier" : "af3f7ddf-719a-380c-bdcf-8e820231bba8",
       "maxBackoffPeriod" : "10 mins",
       "name" : "PutS3Object",
@@ -1674,7 +1816,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1912.0,
-        "y" : -120.0
+        "y" : 80.0
       },
       "properties" : {
         "Destination" : "flowfile-content",
@@ -1836,7 +1978,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : -1912.0,
-        "y" : -320.0
+        "y" : -120.0
       },
       "properties" : {
         "Store State" : "Do not store state",
@@ -2066,6 +2208,6 @@
   "snapshotMetadata" : {
     "author" : "admin",
     "flowIdentifier" : "ingest-queue",
-    "timestamp" : 1779993825004
+    "timestamp" : 1779997432022
   }
 }
